@@ -11,7 +11,7 @@ int main() {
 	while((correctNum - 100) < 0) {
 		correctNum = rand() % 999 + 1;
 	}
-	char correctChar[10]; 
+	char correctChar[4]; 
 	sprintf(correctChar, "%d", correctNum);
 
 	//intro
@@ -19,13 +19,13 @@ int main() {
 	printf("Also...if you give up, it's control+C to quit! \n\n");
 	
 	int numGuess;
-	char numGuessChar[10];	
+	char numGuessChar[4];	
 	while(1) {
-		int digits = 0;
-		int places = 0;
 		printf("Guess a number: ");
 		scanf("%d", &numGuess);
 		if(numGuess != correctNum) {
+			int digits = 0;
+			int places = 0;
 			sprintf(numGuessChar, "%d", numGuess);
 			//Check the # of places
 			for(int i = 0; i < 3; i++) {
@@ -41,7 +41,7 @@ int main() {
 					digits++;
 			} 
 			if((numGuessChar[2] != numGuessChar[1]) && (numGuessChar[2] != numGuessChar[0])) {
-				if(strchr(correctChar, numGuessChar[1]) != NULL) 
+				if(strchr(correctChar, numGuessChar[2]) != NULL) 
 					digits++;
 			}
 
